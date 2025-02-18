@@ -9,7 +9,7 @@ const seasons = ["spring", "summer", "fall", "winter"];
 // Header component
 export default async function Header() {
   
-  const thisSeason = "winter";
+  const thisSeason = "summer";
   let thisYear = 2025;
   let seasonIndex = seasons.indexOf(thisSeason);
   let links = [];
@@ -19,12 +19,13 @@ for(let i = 0; i < 4; i++) {
   if(i === 3 && seasons[seasonIndex] === "fall") {
     thisYear--;
   }
-  if(seasonIndex === 4) {
-    seasonIndex = 0;
+  if(seasonIndex === 3) {
+    
+    thisYear++
   }
   let season = seasons[seasonIndex];
   let year = thisYear;
-
+  
   // Push the link to the array
   links.push(
     <Link href={`/${capitalise(season)}-${year}`} className="flex flex-col capitalize">
@@ -34,6 +35,9 @@ for(let i = 0; i < 4; i++) {
     </Link>
   );
   seasonIndex++;
+  if(seasonIndex > 3){
+    seasonIndex = 0;
+  }
 }
     return (
         <header className="bg-gray-800 w-full h-60 pt-10 text-center font-mono">
