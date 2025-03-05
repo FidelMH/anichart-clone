@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { inter } from '@/app/ui/fonts';
 import "./globals.css";
 
 import { ApolloProvider } from "@apollo/client";
@@ -6,15 +6,9 @@ import { ApolloProvider } from "@apollo/client";
 import Header from "./ui/header";
 import { ApolloWrapper } from "./AppoloWrapper";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+
+
 
 export const metadata = {
   title: "Create Next App",
@@ -25,7 +19,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.className}  antialiased`}
       >
         <ApolloWrapper>
           <Header />
